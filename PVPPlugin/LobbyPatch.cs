@@ -23,15 +23,19 @@ namespace PVPPlugin
             string map = MainClass.config.Maps[UnityEngine.Random.Range(0, MainClass.config.Maps.Length)];
             CustomNetworkManager.customMapJson = File.ReadAllText(map);
             CustomNetworkManager.mapName = Path.GetFileNameWithoutExtension(map);
+            RoundEndPatch.timer = MainClass.config.Timer;
         }
     }
 
     [HarmonyPatch(typeof(RoundEnd), nameof(RoundEnd.Update))]
     public static class RoundEndPatch
     {
+        public static float timer = 60f;
+
         public static bool Prefix(RoundEnd __instance)
         {
-            if (GameObject.FindObjectsOfType<PlayerController>().Length > 1)
+            timer -= Time.deltaTime;
+            if (timer > 0f)
                 return false;
             if (__instance.roundEnded)
                 return false;

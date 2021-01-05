@@ -34,7 +34,7 @@ namespace PVPPlugin
                 {
                     player.PlayerController.stats.NetworkcurWeaponAmmo = 50;
                     player.PlayerController.stats.NetworkreserveAmmo += 50;
-                    PluginSystem.Manager.GameGlobals.SendGlobalChatMessage($"{player.PlayerName} killed {vPlayer.PlayerName}.");
+                    //PluginSystem.Manager.GameGlobals.SendGlobalChatMessage($"{player.PlayerName} killed {vPlayer.PlayerName}.");
                     //vPlayer.PlayerController.stats.ClientChangeClass(vPlayer.PlayerController.stats.NetworkClassId, 1);
                     //vPlayer.PlayerController.stats.NetworkClassId = 1;
                 }

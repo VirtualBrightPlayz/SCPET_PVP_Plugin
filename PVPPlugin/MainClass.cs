@@ -20,6 +20,7 @@ namespace ExamplePlugin
         public class PVPConfig
         {
             public string[] Maps { get; set; }
+            public float Timer { get; set; } = 60f;
         }
 
         public override void OnDisable()
